@@ -14,6 +14,30 @@ class Environment {
     // Si no existe, usa el archivo .env
     return dotenv.env['API_URL'] ?? 'MY_FALLBACK';
   }
+
+  static String get var01 {
+    const systemEnv = String.fromEnvironment('VAR_01');
+    if (systemEnv.isNotEmpty) {
+      return systemEnv;
+    }
+    return dotenv.env['VAR_01'] ?? 'VAR_01_FALLBACK';
+  }
+
+  static String get var02 {
+    const systemEnv = String.fromEnvironment('VAR_02');
+    if (systemEnv.isNotEmpty) {
+      return systemEnv;
+    }
+    return dotenv.env['VAR_02'] ?? 'VAR_02_FALLBACK';
+  }
+
+  static String get var03 {
+    const systemEnv = String.fromEnvironment('VAR_03');
+    if (systemEnv.isNotEmpty) {
+      return systemEnv;
+    }
+    return dotenv.env['VAR_03'] ?? 'VAR_03_FALLBACK';
+  }
 }
 
 Future<void> main() async {
@@ -46,7 +70,18 @@ class EnvironmentVariablePage extends StatelessWidget {
         title: const Text('Environment Variables'),
       ),
       body: Center(
-        child: Text(Environment.apiUrl),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('API URL: ${Environment.apiUrl}'),
+            const SizedBox(height: 20),
+            Text('VAR 01: ${Environment.var01}'),
+            const SizedBox(height: 20),
+            Text('VAR 02: ${Environment.var02}'),
+            const SizedBox(height: 20),
+            Text('VAR 03: ${Environment.var03}'),
+          ],
+        ),
       ),
     );
   }
