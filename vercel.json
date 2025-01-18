@@ -1,11 +1,5 @@
 {
-  "buildCommand": "flutter build web --release",
+  "buildCommand": "flutter build web --release && node replace-env-config.js",
   "outputDirectory": "build/web",
-  "postBuilds": [
-    {
-      "name": "Replace environment variables",
-      "command": "node replace-env-config.js"
-    }
-  ],
   "installCommand": "if cd flutter; then git pull && cd .. ; else git clone https://github.com/flutter/flutter.git; fi && ls && flutter/bin/flutter doctor && flutter/bin/flutter clean && flutter/bin/flutter config --enable-web"
 }
