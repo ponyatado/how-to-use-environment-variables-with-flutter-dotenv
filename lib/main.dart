@@ -4,7 +4,16 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class Environment {
   static String get fileName => kReleaseMode ? ".env.production" : ".env.development";
-  static String get apiUrl => dotenv.env['API_URL'] ?? 'MY_FALLBACK';
+  
+  static String get apiUrl {
+    // Intenta obtener primero de las variables de ambiente del sistema
+    const systemEnv = String.fromEnvironment('API_URL');
+    if (systemEnv.isNotEmpty) {
+      return systemEnv;
+    }
+    // Si no existe, usa el archivo .env
+    return dotenv.env['API_URL'] ?? 'MY_FALLBACK';
+  }
 }
 
 Future<void> main() async {
