@@ -1,5 +1,5 @@
 {
-  "buildCommand": "flutter build web --release && node replace-env-config.js",
+  "buildCommand": "./flutter/bin/flutter build web --release && chmod +x replace-env.sh && ./replace-env.sh",
   "outputDirectory": "build/web",
   "installCommand": "if cd flutter; then git pull && cd .. ; else git clone https://github.com/flutter/flutter.git; fi && ls && flutter/bin/flutter doctor && flutter/bin/flutter clean && flutter/bin/flutter config --enable-web"
 }
