@@ -1,5 +1,6 @@
 {
-  "buildCommand": "flutter build web --dart-define=API_URL=$API_URL",
+  "framework": "Other",
+  "buildCommand": "flutter/bin/flutter build web --release --dart-define=API_URL=$API_URL",
   "outputDirectory": "build/web",
-  "framework": "flutter"
+  "installCommand": "if cd flutter; then git pull && cd .. ; else git clone https://github.com/flutter/flutter.git; fi && ls && flutter/bin/flutter doctor && flutter/bin/flutter clean && flutter/bin/flutter config --enable-web"
 }
