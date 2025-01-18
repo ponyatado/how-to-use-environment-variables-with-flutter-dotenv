@@ -38,6 +38,30 @@ class Environment {
     }
     return dotenv.env['VAR_03'] ?? 'VAR_03_FALLBACK';
   }
+
+  static String get var04 {
+    const systemEnv = String.fromEnvironment('VAR_04');
+    if (systemEnv.isNotEmpty) {
+      return systemEnv;
+    }
+    return dotenv.env['VAR_04'] ?? 'VAR_04_FALLBACK';
+  }
+
+  static String get var05 {
+    const systemEnv = String.fromEnvironment('VAR_05');
+    if (systemEnv.isNotEmpty) {
+      return systemEnv;
+    }
+    return dotenv.env['VAR_05'] ?? 'VAR_05_FALLBACK';
+  }
+
+  static String get var06 {
+    const systemEnv = String.fromEnvironment('VAR_06');
+    if (systemEnv.isNotEmpty) {
+      return systemEnv;
+    }
+    return dotenv.env['VAR_06'] ?? 'VAR_06_FALLBACK';
+  }
 }
 
 Future<void> main() async {
